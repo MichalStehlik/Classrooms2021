@@ -8,8 +8,19 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
+<div>
+    <a asp-page="./CreateClass" class="btn btn-success">Nová třída</a>
+</div>
+<table class="table table-bordered">
 @foreach(var c in Model.Classrooms)
             {
-                <p>@c.Name</p>
+            <tr>
+                <td>@c.Name</td>
+                <td>
+                    <a class="btn btn-secondary" asp-page="./DetailClass" asp-route-id="@c.Id">Detail</a>
+                    <a class="btn btn-secondary" asp-page="./EditClass" asp-route-id="@c.Id">Editace</a>
+                    <a class="btn btn-danger" asp-page="./DeleteClass" asp-route-id="@c.Id">Smazání</a>
+                </td>
+            </tr>
             }
+</table>

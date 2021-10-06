@@ -20,8 +20,12 @@ namespace Classrooms2021.Data
         {
             base.OnModelCreating(mb);
             // -- seed --
-            mb.Entity<Classroom>().HasData(new Classroom { Id = 1, Name = "P3"});
+            Classroom c1 = new Classroom { Id = 1, Name = "P3" };
+            mb.Entity<Classroom>().HasData(c1);
+            //mb.Entity<Classroom>().HasData(new Classroom { Id = 1, Name = "P3"});
             mb.Entity<Classroom>().HasData(new Classroom { Id = 2, Name = "P4" });
+            mb.Entity<Student>().HasData(new Student { Id = 1, Firstname = "Adam", Lastname="Antl", ShoeSize=42, ClassroomId=1 });
+            mb.Entity<Student>().HasData(new Student { Id = 2, Firstname = "Břetislav", Lastname = "Bohatý", ShoeSize = 40, ClassroomId = c1.Id });
         }
     }
 }

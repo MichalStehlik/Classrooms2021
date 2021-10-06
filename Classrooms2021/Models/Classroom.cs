@@ -11,6 +11,7 @@ namespace Classrooms2021.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [Display(Name="Název")]
         public string Name { get; set; }
         public List<Student> Students { get; set; }
     }
