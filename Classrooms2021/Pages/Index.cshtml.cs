@@ -2,6 +2,7 @@
 using Classrooms2021.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Classrooms2021.Pages
         private AppDbContext _db;
 
         public List<Classroom> Classrooms { get; set; }
+        public List<Student> Students { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, AppDbContext db)
         {
@@ -26,6 +28,7 @@ namespace Classrooms2021.Pages
         public void OnGet()
         {
             Classrooms = _db.Classrooms.OrderBy(c => c.Name).ToList();
+            Students = _db.Students.Include(s => s.Classroom).OrderBy(s => s.Lastname).ThenBy(s => s.Firstname).ToList();
         }
     }
 }

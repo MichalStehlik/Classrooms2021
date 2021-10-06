@@ -8,19 +8,38 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<h1>Třídy</h1>
 <div>
     <a asp-page="./CreateClass" class="btn btn-success">Nová třída</a>
 </div>
 <table class="table table-bordered">
-@foreach(var c in Model.Classrooms)
-            {
-            <tr>
-                <td>@c.Name</td>
-                <td>
-                    <a class="btn btn-secondary" asp-page="./DetailClass" asp-route-id="@c.Id">Detail</a>
-                    <a class="btn btn-secondary" asp-page="./EditClass" asp-route-id="@c.Id">Editace</a>
-                    <a class="btn btn-danger" asp-page="./DeleteClass" asp-route-id="@c.Id">Smazání</a>
-                </td>
-            </tr>
-            }
+    @foreach (var c in Model.Classrooms)
+    {
+    <tr>
+        <td>@c.Id</td>
+        <td>@c.Name</td>
+        <td>
+            <a class="btn btn-secondary" asp-page="./DetailClass" asp-route-id="@c.Id">Detail</a>
+            <a class="btn btn-secondary" asp-page="./EditClass" asp-route-id="@c.Id">Editace</a>
+            <a class="btn btn-danger" asp-page="./DeleteClass" asp-route-id="@c.Id">Smazání</a>
+        </td>
+    </tr>
+    }
+</table>
+<h1>Studenti</h1>
+<div>
+    <a asp-page="./CreateStudent" class="btn btn-success">Nový student</a>
+</div>
+<table class="table table-bordered">
+    @foreach (var s in Model.Students)
+    {
+    <tr>
+        <td>@s.Firstname</td>
+        <td>@s.Lastname</td>
+        <td>@s.ClassroomId</td>
+        <td>@s.Classroom.Name</td>
+        <td>
+        </td>
+    </tr>
+    }
 </table>

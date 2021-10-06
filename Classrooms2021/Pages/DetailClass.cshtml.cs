@@ -38,7 +38,7 @@ namespace Classrooms2021.Pages
 
             Students = await _context.Students
                 .Where(s => s.ClassroomId == Classroom.Id)
-                .OrderBy(s => s.Lastname)
+                .OrderBy(s => s.Lastname).ThenBy(s => s.Firstname)
                 .ToListAsync();
             return Page();
         }
