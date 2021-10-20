@@ -14,6 +14,7 @@ namespace Classrooms2021.Models
         [Required]
         public string Firstname { get; set; }
         [Required]
+        [Display(Name = "Příjmení")]
         public string Lastname { get; set; }
         public int ShoeSize { get; set; }   
         [ForeignKey("ClassroomId")]

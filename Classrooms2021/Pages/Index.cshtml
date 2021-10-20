@@ -19,16 +19,14 @@
         <td>@c.Id</td>
         <td>@c.Name</td>
         <td>
-            <a class="btn btn-secondary" asp-page="./DetailClass" asp-route-id="@c.Id">Detail</a>
-            <a class="btn btn-secondary" asp-page="./EditClass" asp-route-id="@c.Id">Editace</a>
-            <a class="btn btn-danger" asp-page="./DeleteClass" asp-route-id="@c.Id">Smazání</a>
+            <partial name="_DbControl" model="c" />
         </td>
     </tr>
     }
 </table>
 <h1>Studenti</h1>
 <div>
-    <a asp-page="./CreateStudent" class="btn btn-success">Nový student</a>
+    <a asp-page="Create" asp-area="Students" class="btn btn-success">Nový student</a>
 </div>
 <table class="table table-bordered">
     @foreach (var s in Model.Students)
