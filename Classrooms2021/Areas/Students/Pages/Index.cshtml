@@ -1,0 +1,59 @@
+﻿@page
+@model Classrooms2021.Areas.Students.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form method="get">
+    <input class="form-control" asp-for="Search" />
+    <button class="btn btn-primary" type="submit">Hledej</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].ShoeSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student[0].Classroom)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Student) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShoeSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classroom.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

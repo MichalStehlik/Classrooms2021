@@ -27,6 +27,7 @@
 <h1>Studenti</h1>
 <div>
     <a asp-page="Create" asp-area="Students" class="btn btn-success">Nový student</a>
+    <a asp-page="Index" asp-area="Students" class="btn btn-primary">Seznam</a>
 </div>
 <table class="table table-bordered">
     @foreach (var s in Model.Students)
